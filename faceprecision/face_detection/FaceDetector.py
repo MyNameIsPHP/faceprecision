@@ -17,7 +17,9 @@ class FaceDetector:
         If height/width is less than 1/5 or if width/height is less than 1/5, return False.
         Otherwise, return True.
         """
-        return not (height / width < 1/5 or width / height < 1/5)
+        h_w = height / width
+        w_h = width / height
+        return (h_w > 0.2 and h_w < 5 and w_h > 0.2 and w_h < 5 and height > 15 and width > 15)
     
     def _is_face_blurry(self, face):
         """
