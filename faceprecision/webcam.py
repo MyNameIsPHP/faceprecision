@@ -52,7 +52,7 @@ class WebcamFacePrecision:
     def _draw_corners(frame, bbox, analysis_results):
         x, y, w, h = bbox
         corner_color = (0, 255, 0)  # Green color for corners
-        corner_length = 20  # Length of each corner line
+        corner_length = int(0.15*((w+h)/2))  # Length of each corner line
         corner_thickness = 3  # Thickness of corner lines
         # Other variables (text_color, text_background_color, etc.) remain the same
 
