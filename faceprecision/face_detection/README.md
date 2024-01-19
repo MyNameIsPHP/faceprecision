@@ -1,5 +1,5 @@
 
-# Face Detection with YOLOv8 with Blurriness Filter
+# YOLOv8 Face Detection with Blurriness Filter
 
 
 This Python code is a script for real-time face detection using the YOLO (You Only Look Once) object detection model, filters out non-faces by checking the bluriness of detected faces, implemented using the Ultralytics library and OpenCV. 
