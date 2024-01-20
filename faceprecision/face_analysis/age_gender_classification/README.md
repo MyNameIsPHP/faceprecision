@@ -1,4 +1,11 @@
 
+# Multi-task Learning & Transfer Learning for Age & Gender Classification
+
+This repository contains code for building a multi-task learning model that performs age and gender classification using deep learning techniques. The model is trained on facial images and utilizes transfer learning with a pre-trained ResNet50 architecture.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PbI2J2kLZmqK4fGPtirdN1aNqwEn3kk3?usp=sharing)
+
+
 ## Requirements
 Make sure you have the following libraries installed:
 - tensorflow >= 2.10.0
