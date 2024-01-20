@@ -1,5 +1,5 @@
 
-# Enhanced FaceNet for Racial Feature Classification and Deep White-Balance Editing with RandomForest for Skintone Classification
+# Advanced FaceNet Integration with Racial Feature Analysis and Deep White-Balance Editing using RandomForest for Dermatological Tone Classification and Predictive Fusion Techniques
 
 This repository contains code for building a learning model that performs race classification using deep learning techniques and skintone classification using computer vision combined with machine learning. The model is trained on racial and skin tone images and utilizes transfer learning with a pre-trained FaceNet architecture.
 
