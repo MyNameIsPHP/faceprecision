@@ -2,17 +2,15 @@ import cv2
 from concurrent.futures import ThreadPoolExecutor
 
 class FaceAnalyzer:
-    def __init__(self, analyze_mask=False, analyze_emotion=False, analyze_gender=False, analyze_age=False, analyze_race_skintone = False):
+    def __init__(self, analyze_mask=False, analyze_emotion=False, analyze_age_gender=False, analyze_race_skintone = False):
         # Initialize all detectors
         self.attributes = {}
         if analyze_mask:
             self.attributes['masked'] = self._init_mask_detector()
         if analyze_emotion:
             self.attributes['emotion'] = self._init_emotion_detector()
-        if analyze_gender:
-            self.attributes['gender'] = self._init_gender_classifier()
-        if analyze_age:
-            self.attributes['age'] = self._init_age_classifier()
+        if analyze_age_gender:
+            self.attributes['age_gender'] = self._init_age_gender_classifier()
         if analyze_race_skintone:
             self.attributes['race_skintone'] = self._init_race_skintone_classifier()
 
@@ -26,15 +24,10 @@ class FaceAnalyzer:
         EMOTION_DETECTOR_MODEL_PATH = 'face_analysis/emotion_detection/weights/emotion_detector.onnx'
         return EmotionDetector(EMOTION_DETECTOR_MODEL_PATH)
     
-    def _init_gender_classifier(self):
-        from .gender_classification.GenderClassifier import GenderClassifier
-        GENDER_CLASSIFIER_MODEL_PATH = 'face_analysis/gender_classification/weights/gender_classifier.onnx'
-        return GenderClassifier(GENDER_CLASSIFIER_MODEL_PATH)
-    
-    def _init_age_classifier(self):
-        from .age_detection.AgeDetector import AgeDetector
-        AGE_DETECTOR_MODEL_PATH = 'face_analysis/age_detection/weights/age_detector.onnx'
-        return AgeDetector(AGE_DETECTOR_MODEL_PATH)
+    def _init_age_gender_classifier(self):
+        from .age_gender_classification.AgeGenderClassifier import AgeGenderClassifier
+        AGE_GENDER_CLASSIFIER_MODEL_PATH = 'face_analysis/age_gender_classification/weights/age_gender_224.onnx'
+        return AgeGenderClassifier(AGE_GENDER_CLASSIFIER_MODEL_PATH, input_size=(224, 224))
     
     def _init_race_skintone_classifier(self):
         from .race_skintone_classification.RaceSkintoneClassifier import RaceSkintoneClassifier

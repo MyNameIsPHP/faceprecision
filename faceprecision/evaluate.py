@@ -17,7 +17,7 @@ class Evaluator:
         self.output_folder_name = output_folder_name
         self.plot_result = plot_result
         self.face_detector = FaceDetector()
-        self.face_analyzer = FaceAnalyzer(analyze_mask=True, analyze_emotion=True, analyze_gender=True, analyze_age=True, analyze_race_skintone = True)
+        self.face_analyzer = FaceAnalyzer(analyze_mask=True, analyze_emotion=True, analyze_age_gender=True, analyze_race_skintone = True)
         self.save_wrong_cases = save_wrong_cases
         self.tp = 0
         self.fp = 0
@@ -181,9 +181,9 @@ class Evaluator:
             analysis_results = future.result()
             result_list = analysis_results.values()
             predicted_race = analysis_results.get("race_skintone")[0]
-            predicted_age = analysis_results.get("age")
+            predicted_age = analysis_results.get("age_gender")[0]
             predicted_emotion = analysis_results.get("emotion")
-            predicted_gender =  analysis_results.get("gender")
+            predicted_gender =   analysis_results.get("age_gender")[1]
             predicted_skintone = analysis_results.get("race_skintone")[1]
             predicted_masked = analysis_results.get("masked")
 

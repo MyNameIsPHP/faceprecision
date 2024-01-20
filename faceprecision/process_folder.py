@@ -19,7 +19,7 @@ class FolderProcessor:
         self.save_cropped_faces = save_cropped_faces
         self.plot_result = plot_result
         self.face_detector = FaceDetector()
-        self.face_analyzer = FaceAnalyzer(analyze_mask=True, analyze_emotion=True, analyze_gender=True, analyze_age=True, analyze_race_skintone = True)
+        self.face_analyzer = FaceAnalyzer(analyze_mask=True, analyze_emotion=True, analyze_age_gender=True, analyze_race_skintone = True)
         
         os.makedirs(self.output_folder_name, exist_ok=True)
 
@@ -97,7 +97,7 @@ class FolderProcessor:
                 writer = csv.writer(file)
 
                 # Assuming `analysis_results` is a dictionary, you can format it like this:
-                writer.writerow([original_filename, str(list(bbox)), image_id, analysis_results.get("race_skintone")[0], analysis_results.get("age"), analysis_results.get("emotion"), analysis_results.get("gender"), analysis_results.get("race_skintone")[1], analysis_results.get("masked")])
+                writer.writerow([original_filename, str(list(bbox)), image_id, analysis_results.get("race_skintone")[0], analysis_results.get("age_gender")[0], analysis_results.get("emotion"), analysis_results.get("age_gender")[1], analysis_results.get("race_skintone")[1], analysis_results.get("masked")])
 
             frame = self._plot_result(frame, bbox, result_list)
 

@@ -7,7 +7,7 @@ from face_detection.FaceDetector import FaceDetector
 class WebcamFacePrecision:
     def __init__(self):
         self.face_detector = FaceDetector()
-        self.face_analyzer = FaceAnalyzer(analyze_mask=True, analyze_emotion=True, analyze_gender=True, analyze_age=True, analyze_race_skintone = True)
+        self.face_analyzer = FaceAnalyzer(analyze_mask=True, analyze_emotion=True, analyze_age_gender=True, analyze_race_skintone = True)
         self.fps = 0
         self.prev_frame_time = 0
 
