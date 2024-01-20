@@ -1,19 +1,20 @@
-#!pip install -U tf2onnx
-
+import argparse
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
-import onnx
 import tf2onnx
 
-input_model = 'mask_detector.hdf5'
+# Initialize argument parser
+parser = argparse.ArgumentParser(description='Convert a Keras model to ONNX format.')
+parser.add_argument('input_model', help='Path to the input Keras model file (e.g., model.h5)')
 
+# Parse arguments
+args = parser.parse_args()
 
 # Load the trained model
-model = tf.keras.models.load_model(input_model)
+model = tf.keras.models.load_model(args.input_model, compile=False)
 
+# Convert the model to ONNX
+onnx_model, _ = tf2onnx.convert.from_keras(model, opset=11, output_path=args.input_model.split(".")[0] + ".onnx")
 
-onnx_model, _ = tf2onnx.convert.from_keras(model, opset=11, output_path=input_model.split(".")[0]+".onnx")
+# Print output names
 output_names = [n.name for n in onnx_model.graph.output]
 print("Output names: ", output_names)
-
