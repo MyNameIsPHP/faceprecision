@@ -23,7 +23,7 @@ The faceprecision repository is organized as follows:
     - [process_folder.py](https://github.com/MyNameIsPHP/faceprecision/blob/main/faceprecision/process_folder.py): Script for processing a folder of images for face analysis.
     - [webcam.py](https://github.com/MyNameIsPHP/faceprecision/blob/main/faceprecision/webcam.py): Script for real-time face analysis using a webcam.
 - Folders:
-    - [face_analysis](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_analysis): Contains subfolders for each face analysis aspect (age_gender_classification, emotion_detection, mask_detection, race_skintone_classification), each with models and weights folders.
+    - [face_analysis](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_analysis): Contains subfolders for each face analysis aspect ([age_gender_classification](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_analysis/age_gender_classification), [emotion_detection](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_analysis/emotion_detection), [mask_detection](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_analysis/mask_detection), [race_skintone_classification](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_analysis/race_skintone_classification)), each with models and weights folders.
     - [face_detection](https://github.com/MyNameIsPHP/faceprecision/tree/main/faceprecision/face_detection): Includes yolov8 and non_face_classification subfolders, each with models and weights folders.
 - Models and Weights:
     - models folder: Contains files, Google Colab links for training and evaluating models, and files for converting H5 to ONNX format.
