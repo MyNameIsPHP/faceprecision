@@ -3,7 +3,7 @@
 
 This repository contains code for building a multi-task learning model that performs age and gender classification using deep learning techniques. The model is trained on facial images and utilizes transfer learning with a pre-trained ResNet50 architecture.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PbI2J2kLZmqK4fGPtirdN1aNqwEn3kk3?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1P36CQtWgpDYprzvIdHTw1UWtOoQwYBkE?usp=sharing)
 
 
 ## Requirements
@@ -43,10 +43,10 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 ## File Structure
 `models` directory:
 - `convert_onnx.py`: convert h5 file model to onnx format.
-- `multitask_learning_resnet50.ipynb`: local version of the colab links above. This is the Python notebook for training, evaluating and testing the model.
+- `MaskedClassification.ipynb`: local version of the colab links above. This is the Python notebook for training, evaluating and testing the model.
 
-`weights` directory: contains weights, pretrained models for `AGE_GENDER_CLASSIFIER_MODEL_PATH` in "face_analysis/FaceAnalyzer.py"
+`weights` directory: contains weights, pretrained models for `MASK_CLASSIFIER_MODEL_PATH` in "face_analysis/FaceAnalyzer.py"
 
 ## Weights
- - [age_gender_224.onnx](https://drive.google.com/file/d/1Dvmu0DS91fvRKA0LmMgOH171IpzNyhX6/view?usp=sharing)
- - [age_gender_224.h5](https://drive.google.com/file/d/1hSCh85RTw1_j6b43Z4TzL5W86pYI2kIG/view?usp=sharing)
+ - [mask_64.onnx](https://drive.google.com/file/d/1WD74hmMY8-NWR0Lw7uqk0w7iKwK8yhj_/view?usp=sharing)
+ - [mask_64.h5](https://drive.google.com/file/d/1E-TU3mv1HKZtxShHD9VBCAz0Ge2HL0jP/view?usp=sharing)
