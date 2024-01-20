@@ -5,7 +5,7 @@ This repository contains code for building a learning model that performs race c
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XMssf4Md8njSdoUCs4SzKVVWqIogwYC0?usp=sharing)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lVAQy5gHGo5i98AXbjEcMlXYEq8xhwbQ?usp=sharing)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hpdigDol1s2sjuAUD8kfdYkJTh7jP8Xe?usp=sharing
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hpdigDol1s2sjuAUD8kfdYkJTh7jP8Xe?usp=sharing)
 
 
 ## Requirements
@@ -42,7 +42,7 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 - onnx
 - tf2onnx
 - keras_cv
-- deepface
+- [deepface](https://github.com/serengil/deepface.git)
 - pytorch-ignite
 ## File Structure
 `models` directory:
