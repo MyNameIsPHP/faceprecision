@@ -1,7 +1,7 @@
 
 # Attention Mechanism & Spatial Transformer for Emotion Detection
 
-This repository contains code for building a task learning model that performs emotion classification using CNN with attention mechanism and spatial attention techniques. The model is trained on facial images and utilizes CNN with attention mechanism and spatial attention architecture.
+This repository contains code for building a task learning model that performs emotion classification apply attention mechanism and spatial attention techniques. The model is trained on facial images and utilizes using CNN architecture with attention mechanism and spatial attention.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1L7Mwfz3I3hxQulJqTVF1UP7K3JSn4Gds?usp=sharing)
 

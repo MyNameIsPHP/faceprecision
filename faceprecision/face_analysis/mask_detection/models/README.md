@@ -1,7 +1,7 @@
 
 # Attention Mechanism & Spatial Transformer for Mask Detection
 
-This repository contains code for building a task learning model that performs mask classification using CNN with attention mechanism and spatial attention techniques. The model is trained on facial images and utilizes CNN with attention mechanism and spatial attention architecture.
+This repository contains code for building a task learning model that performs mask classification apply attention mechanism and spatial attention techniques. The model is trained on facial images and utilizes using CNN architecture with attention mechanism and spatial attention.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1P36CQtWgpDYprzvIdHTw1UWtOoQwYBkE?usp=sharing)
 
