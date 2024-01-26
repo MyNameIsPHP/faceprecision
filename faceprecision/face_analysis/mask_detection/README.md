@@ -1,7 +1,7 @@
 
-# Multi-task Learning & Transfer Learning for Age & Gender Classification
+# Attention Mechanism & Spatial Transformer for Mask Detection
 
-This repository contains code for building a multi-task learning model that performs age and gender classification using deep learning techniques. The model is trained on facial images and utilizes transfer learning with a pre-trained ResNet50 architecture.
+This repository contains code for building a task learning model that performs mask classification apply attention mechanism and spatial attention techniques. The model is trained on facial images and utilizes using CNN architecture with attention mechanism and spatial attention.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1P36CQtWgpDYprzvIdHTw1UWtOoQwYBkE?usp=sharing)
 
@@ -48,5 +48,5 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 `weights` directory: contains weights, pretrained models for `MASK_CLASSIFIER_MODEL_PATH` in "face_analysis/FaceAnalyzer.py"
 
 ## Weights
- - [mask_64.onnx](https://drive.google.com/file/d/1WD74hmMY8-NWR0Lw7uqk0w7iKwK8yhj_/view?usp=sharing)
- - [mask_64.h5](https://drive.google.com/file/d/1E-TU3mv1HKZtxShHD9VBCAz0Ge2HL0jP/view?usp=sharing)
+ - [mask_64.onnx](https://drive.google.com/file/u/4/d/1WD74hmMY8-NWR0Lw7uqk0w7iKwK8yhj_/view?usp=sharing)
+ - [mask_64.h5](https://drive.google.com/file/d/1E-TU3mv1HKZtxShHD9VBCAz0Ge2HL0jP/view)
