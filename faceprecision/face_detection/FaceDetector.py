@@ -1,14 +1,17 @@
 import cv2
 from ultralytics import YOLO
 import time
+import os 
+
 
 class FaceDetector:
     CONFIDENCE_THRESHOLD = 0.47
     NMS_THRESHOLD = 0.4
-    MODEL_PATH = "face_detection/yolov8/weights/example_yolov8_weights.pt"
     
-    def __init__(self):
-        self.model = YOLO(self.MODEL_PATH)
+    def __init__(self, method, model_name):
+        self.method = method
+        self.model_name = model_name
+        self.model = YOLO(os.path.join(os.path.dirname(__file__), self.method, 'weights', model_name))
 
     @staticmethod
     def is_ratio_acceptable(height, width):
