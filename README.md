@@ -56,7 +56,7 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 result = faceprecision.predict("test.jpg", save_path="result.jpg")
 ```
 
-<p align="center"><img src="" width="95%" height="95%"></p>
+<p align="center"><img src="https://github.com/MyNameIsPHP/faceprecision/blob/main/result.jpg?raw=true" width="95%" height="95%"></p>
 
 
 ### Predict output from video
