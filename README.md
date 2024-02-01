@@ -1,7 +1,7 @@
 # faceprecision 
 Faceprecision is a comprehensive face analysis project leveraging advanced deep learning and computer vision techniques. This project includes a modules and source codes for detecting and analyzing various facial attributes such as age, emotion, gender, the presence of a mask, race and skin tone.
 
-<p align="center"><img src="https://github.com/MyNameIsPHP/faceprecision/blob/main/example_images/result_myteam.jpg?raw=true" width="90%" height="90%"></p>
+<p align="center"><img src="https://github.com/MyNameIsPHP/faceprecision/blob/main/example_images/result_myteam.jpg?raw=true" width="80%" height="80%"></p>
 
 ## Features
 - Face Detection: Utilize state-of-the-art YOLOv8 and non-face classification models for accurate face detection.
