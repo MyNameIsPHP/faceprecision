@@ -3,10 +3,12 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from .face_analysis.FaceAnalyzer import FaceAnalyzer
 from .face_detection.FaceDetector import FaceDetector
+from .face_recognition.FaceRecognizer import FaceRecognizer
 
 class FacePrecision:
     def __init__(self, detector_method='yolov8', detector_model='example_yolov8_weights.pt',
-                 analyzer_method="multitask_attention_network", analyzer_model='multitask_attention_akatsuki.onnx'):
+                 analyzer_method="multitask_attention_network", analyzer_model='multitask_attention_akatsuki.onnx',
+                 recognizer_method='pretrained_facenet', recognizer_model='face_recognition.onnx'):
         """
         Initialize the FacePrecision class with configurable parameters for FaceDetector and FaceAnalyzer.
 
@@ -18,11 +20,13 @@ class FacePrecision:
         """
         self.face_detector = FaceDetector(method=detector_method, model_name=detector_model)
         self.face_analyzer = FaceAnalyzer(method=analyzer_method, model_name=analyzer_model)
+        self.face_recognizer = FaceRecognizer(method=recognizer_method, model_name=recognizer_model)
+
         self.fps = 0
         self.prev_frame_time = 0
 
     @staticmethod
-    def _display_text(frame, bbox, analysis_results):
+    def _display_attributes(frame, bbox, analysis_results):
         x, y, w, h = bbox
         text_color = (255, 255, 255)  # White color for text
         text_background_color = (0, 0, 0)  # Black background for text
@@ -48,6 +52,28 @@ class FacePrecision:
             cv2.rectangle(frame, (text_x, text_y - text_size[1] - padding), (text_x + text_size[0] + padding, text_y + padding), text_background_color, -1)
             # Draw text
             cv2.putText(frame, text, (text_x, text_y), font, font_scale, text_color, font_thickness, cv2.LINE_AA)
+    
+    @staticmethod
+    def _display_text(frame, bbox, name):
+        x, y, w, h = bbox
+        if ("Unknown" in name):
+            text_color = (0, 0, 255)  # Red color
+        else:
+            text_color = (0, 255, 0)  # Green color 
+
+        text_background_color = (0, 0, 0)  # Black background for text
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 0.5
+        font_thickness = 1
+        padding = 3
+
+        text_size = cv2.getTextSize(name, font, font_scale, font_thickness)[0]
+        text_x = int(x - 7)
+        text_y = int(y - 10)
+        # Draw background for text
+        cv2.rectangle(frame, (text_x, text_y - text_size[1] - padding), (text_x + text_size[0] + padding, text_y + padding), text_background_color, -1)
+        # Draw text
+        cv2.putText(frame, name, (text_x, text_y), font, font_scale, text_color, font_thickness, cv2.LINE_AA)
 
     @staticmethod
     def _draw_rectangle(frame, bbox):
@@ -100,13 +126,19 @@ class FacePrecision:
 
     def _process_frame(self, frame, executor):
         detected_bboxes = self.face_detector.process_image(frame)
+        for bbox in detected_bboxes:
+            self._draw_corners(frame, bbox)
+
         futures = [(executor.submit(self.face_analyzer.predict, frame[int(y):int(y + h), int(x):int(x + w)]), (x, y, w, h)) for (x, y, w, h) in detected_bboxes]
+        names = [(executor.submit(self.face_recognizer.predict, frame[int(y):int(y + h), int(x):int(x + w)]), (x, y, w, h)) for (x, y, w, h) in detected_bboxes]
+        
+        for name, bbox in names:
+            self._display_text(frame, bbox, name.result())
 
         for future, bbox in futures:
             result_list = future.result().values()
-            self._draw_corners(frame, bbox)
-            # self._draw_rectangle(frame, bbox, result_list)
-            self._display_text(frame, bbox, result_list)
+            self._display_attributes(frame, bbox, result_list)
+
 
     def start_webcam(self):
         cap = cv2.VideoCapture(0)
@@ -153,11 +185,13 @@ class FacePrecision:
             for (x, y, w, h) in detected_bboxes:
                 cropped_face = image[int(y):int(y + h), int(x):int(x + w)]
                 analysis = self.face_analyzer.predict(cropped_face)
-                
+                name = self.face_recognizer.predict(cropped_face)
+
                 if plot_result:
                     # Plot features like bounding box and analysis text
                     self._draw_corners(image, (x, y, w, h))
-                    self._display_text(image, (x, y, w, h), analysis.values())
+                    self._display_text(image, (x, y, w, h), name)
+                    self._display_attributes(image, (x, y, w, h), analysis.values())
                 analysis_results.append((analysis, (x, y, w, h)))
 
             if (save_path != None):
@@ -187,10 +221,11 @@ class FacePrecision:
                 for (x, y, w, h) in detected_bboxes:
                     cropped_face = frame[int(y):int(y + h), int(x):int(x + w)]
                     analysis = self.face_analyzer.predict(cropped_face)
-
+                    name = self.face_recognizer.predict(cropped_face)
                     if plot_result:
                         self._draw_corners(frame, (x, y, w, h))
-                        self._display_text(frame, (x, y, w, h), analysis.values())
+                        self._display_text(frame, (x, y, w, h), name)
+                        self._display_attributes(frame, (x, y, w, h), analysis.values())
 
                 # Save or display the frame
                 if save_path is not None:

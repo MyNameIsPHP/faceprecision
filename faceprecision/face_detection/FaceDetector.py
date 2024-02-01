@@ -5,7 +5,7 @@ import os
 
 
 class FaceDetector:
-    CONFIDENCE_THRESHOLD = 0.47
+    CONFIDENCE_THRESHOLD = 0.4
     NMS_THRESHOLD = 0.4
     
     def __init__(self, method, model_name):
