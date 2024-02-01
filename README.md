@@ -4,7 +4,7 @@ Faceprecision is a comprehensive face analysis project leveraging advanced deep 
 ## Features
 - Face Detection: Utilize state-of-the-art YOLOv8 and non-face classification models for accurate face detection.
 - Face Analysis: Leverage Multi-task Learning with Transfer Learning model for detecting age, emotion, gender, mask usage, and race/skintone.
-
+- Face Recognition: Implement Face Recognition with pretrained FaceNet model using Transfer Learning to identify and verify individuals in images and videos.
 
 ## Installation & Usage
 Ensure you have Anaconda or Miniconda installed. Follow these steps to set up the environment:
