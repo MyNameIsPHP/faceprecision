@@ -55,7 +55,7 @@ Ensure you have Anaconda or Miniconda installed. Follow these steps to set up th
 result = faceprecision.predict("test.jpg", save_path="result.jpg")
 ```
 
-<p align="center"><img src="https://github.com/MyNameIsPHP/faceprecision/blob/main/result.jpg?raw=true" width="95%" height="95%"></p>
+<p align="center"><img src="https://github.com/MyNameIsPHP/faceprecision/blob/main/example_images/result_test2.jpg" width="95%" height="95%"></p>
 
 
 ### Predict output from video
