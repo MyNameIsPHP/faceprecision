@@ -66,7 +66,7 @@ faceprecision.predict("test_video.mp4", save_path="processed_video.mp4")
 ```
 
 
-### Real-Time Analysis: Perform face analysis in real-time using webcam
+### Real-time Analysis: Perform face analysis in real-time using webcam
 ```
 faceprecision.start_webcam()
 ```
